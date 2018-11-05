@@ -370,7 +370,7 @@ class Window(QtWidgets.QMainWindow):
 				self.timerCounter += 1
 
 				#if 108.000 seconds are gone we updatet the infromation (30min)
-				if self.timerCounter == 100000:
+				if self.timerCounter == 10:
 					_thread.start_new_thread(workerThread, ("None", "None"))
 					self.timerCounter = 0
 					
@@ -830,6 +830,9 @@ class Window(QtWidgets.QMainWindow):
 		self.rss_text.setText(feedparser.parse("https://www.theguardian.com/world/rss")["entries"][0]["title"])
 
 		#Greeting
+		self.greeting_text.setText(greeting())
+		
+
 		
 
 		
