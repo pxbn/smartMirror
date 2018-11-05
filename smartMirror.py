@@ -90,9 +90,9 @@ def computeDrivingData():
 		trafficDurationData = drivingData['resourceSets'][0]['resources'][0]['travelDurationTraffic']
 
 		#first the normal time in mins to arrive
-		drivingInformation.append(math.floor(durationData/60))
+		drivingInformation.append(math.ceil(durationData/60))
 		#second the delay time in mins
-		drivingInformation.append(math.floor(trafficDurationData/60 - drivingInformation[0]))
+		drivingInformation.append(math.ceil(drivingInformation[0] - trafficDurationData/60))
 		print("Driving data fetched and processed")
 
 
@@ -370,7 +370,7 @@ class Window(QtWidgets.QMainWindow):
 				self.timerCounter += 1
 
 				#if 108.000 seconds are gone we updatet the infromation (30min)
-				if self.timerCounter == 10:
+				if self.timerCounter == 100000:
 					_thread.start_new_thread(workerThread, ("None", "None"))
 					self.timerCounter = 0
 					
@@ -782,31 +782,7 @@ class Window(QtWidgets.QMainWindow):
 
 		#Set Layout of the central Widget and show that shit
 		self.centWid.setLayout(self.vBox)
-		
-
-	
-	#Function for fading the greeding out and in
-	# def fade_greeting(self, foo, bar):
-	# 		# for i in range(255, -1, -5):
-	# 		# 	print(i)
-	# 		# 	string = "font : 45px; font : bold; color : rgba(220, 220, 220, " + str (i) + "); font-family : HelveticaNeue-UltraLight"
-	# 		# 	time.sleep(0.2)
-	# 		# 	self.greeting_text.setStyleSheet(string)
-				
-			
-	# 		# time.sleep(2)
-	# 		# self.greeting_text.setText(greeting())
-	# 		# time.sleep(2)
-
-	# 		# for i in range(0, 256, 5):
-	# 		# 	print(i)
-	# 		# 	string = "font : 45px; font : bold; color : rgba(220, 220, 220, " + str (i) + "); font-family : HelveticaNeue-UltraLight"
-	# 		# 	time.sleep(0.2)
-	# 		# 	self.greeting_text.setStyleSheet(string)
-	# 		self.greeting_text.startFadeIn()
-
-
-				
+						
 
 
 	#FUNCTION FOR UPDATING UI
