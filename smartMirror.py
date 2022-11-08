@@ -48,7 +48,7 @@ def computeWeatherData():
 	del weatherForecast[:]
 
 	#fetch new data
-	with urllib.request.urlopen("http://api.openweathermap.org/data/2.5/forecast?id=2843729&units=metric&APPID=f9f8fe22830e3313a1fbc7cbcd5e97f4", timeout = 10) as url:
+	with urllib.request.urlopen("http://api.openweathermap.org/data/2.5/forecast?lat=49.872826&lon=8.651193&units=metric&APPID=f9f8fe22830e3313a1fbc7cbcd5e97f4", timeout = 10) as url:
 		weatherData = json.loads(url.read().decode())
 		weatherData = weatherData['list']
 
