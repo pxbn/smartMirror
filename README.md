@@ -10,6 +10,6 @@ The mirror uses the openweather api for retriving weather information
 
 ## Usage
 You have to add all necessary API keys in lines 51, 86 and 107.
-Then simply run the pythonscript with the included venv!@
+Then simply run the pythonscript with the included venv!
 
 Have fun!
