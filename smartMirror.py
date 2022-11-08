@@ -48,7 +48,7 @@ def computeWeatherData():
 	del weatherForecast[:]
 
 	#fetch new data
-	with urllib.request.urlopen("http://api.openweathermap.org/data/2.5/forecast?lat=49.872826&lon=8.651193&units=metric&APPID=f9f8fe22830e3313a1fbc7cbcd5e97f4", timeout = 10) as url:
+	with urllib.request.urlopen("http://api.openweathermap.org/data/2.5/forecast?lat=49.872826&lon=8.651193&units=metric&appid=", timeout = 10) as url:
 		weatherData = json.loads(url.read().decode())
 		weatherData = weatherData['list']
 
@@ -83,7 +83,7 @@ def computeDrivingData():
 	del drivingInformation[:]
 
 	#fetch new data
-	with urllib.request.urlopen("http://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=Rottenburg%20am%Neckar,%20Breitwiesenweg%206&wp.1=T%C3%BCbingen&avoid=minimizeTolls&key=AnvZ81ilKVD3h_znUyJlxWgJcrIWxqQr3nYIGtUtGiADuhoJ_OsGqLUVeWx8Nu3h", timeout = 10) as url:
+	with urllib.request.urlopen("http://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=Rottenburg%20am%Neckar,%20Breitwiesenweg%206&wp.1=T%C3%BCbingen&avoid=minimizeTolls&key=", timeout = 10) as url:
 		drivingData = json.loads(url.read().decode())
 		distanceData = drivingData['resourceSets'][0]['resources'][0]['travelDistance']
 		durationData = drivingData['resourceSets'][0]['resources'][0]['travelDuration']
@@ -104,7 +104,7 @@ def computeCalendarData():
 	#clear old data
 	del events[:]
 	#Save my main calendar as myCalendar.ical to dir
-	urllib.request.urlretrieve("https://calendar.google.com/calendar/ical/guenthner.luk%40gmail.com/private-0641a5e381966e5ff241c90234fee166/basic.ics", "myCalendar.ical")
+	urllib.request.urlretrieve("https://calendar.google.com/calendar/ical/guenthner.luk%40gmail.com/", "myCalendar.ical")
 	print("Own calendar fetched")
 
 	#Open the downloaded ical file
